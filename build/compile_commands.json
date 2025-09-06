@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/david/Desktop/PersonalProjects/ComputerAudioRecognition/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/computerAudioRecognition.dir/includes_CXX.rsp -std=gnu++17 -o CMakeFiles\\computerAudioRecognition.dir\\src\\main.cpp.obj -c C:\\Users\\david\\Desktop\\PersonalProjects\\ComputerAudioRecognition\\src\\main.cpp",
+  "file": "C:/Users/david/Desktop/PersonalProjects/ComputerAudioRecognition/src/main.cpp",
+  "output": "CMakeFiles/computerAudioRecognition.dir/src/main.cpp.obj"
+}
+]
