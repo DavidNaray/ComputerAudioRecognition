@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.10"
@@ -19,7 +19,7 @@
 					]
 				}
 			],
-			"name" : "",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "computerAudioRecognition::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-computerAudioRecognition-ffbf35f14a167107713e.json",
+					"jsonFile" : "target-computerAudioRecognition-Debug-b1d8e170af0a070824a1.json",
 					"name" : "computerAudioRecognition",
 					"projectIndex" : 0
 				}
