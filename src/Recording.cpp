@@ -21,6 +21,7 @@ struct RecordingData {
 
 
 void saveWav(const std::string &filename, const std::vector<int16_t> &samples, int sampleRate = 44100) {
+    //I honestly couldnt be bothered figuring this out, i just looked it up frankly, its not something ive defined bruh
     std::ofstream out(filename, std::ios::binary);
     if (!out) {
         std::cerr << "Failed to open file " << filename << " for writing\n";

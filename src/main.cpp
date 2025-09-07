@@ -1,6 +1,7 @@
 #include <iostream>
 #include "portaudio.h"
 #include "Recording.h"
+#include "Train.h"
 
 int main(int argc, char* argv[]) {//argc is number of params, char* argv is an array of pointers to characters ie, a word
     if (argc == 3 && std::string(argv[1]) == "--record") {
