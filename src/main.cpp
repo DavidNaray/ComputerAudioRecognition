@@ -1,10 +1,11 @@
 #include <iostream>
 #include "portaudio.h"
+#include "Recording.h"
 
 int main(int argc, char* argv[]) {//argc is number of params, char* argv is an array of pointers to characters ie, a word
     if (argc == 3 && std::string(argv[1]) == "--record") {
         std::string label = argv[2];
-        // recordAudio(label);
+        recordAudio(label);
         std::cout << "recording!!!" << std::endl;
     } else if (argc == 2 && std::string(argv[1]) == "--train") {
         // trainModel();

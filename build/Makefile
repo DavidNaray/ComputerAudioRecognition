@@ -128,6 +128,30 @@ computerAudioRecognition/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\computerAudioRecognition.dir\build.make CMakeFiles/computerAudioRecognition.dir/build
 .PHONY : computerAudioRecognition/fast
 
+src/Recording.obj: src/Recording.cpp.obj
+.PHONY : src/Recording.obj
+
+# target to build an object file
+src/Recording.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\computerAudioRecognition.dir\build.make CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.obj
+.PHONY : src/Recording.cpp.obj
+
+src/Recording.i: src/Recording.cpp.i
+.PHONY : src/Recording.i
+
+# target to preprocess a source file
+src/Recording.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\computerAudioRecognition.dir\build.make CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.i
+.PHONY : src/Recording.cpp.i
+
+src/Recording.s: src/Recording.cpp.s
+.PHONY : src/Recording.s
+
+# target to generate assembly for a file
+src/Recording.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\computerAudioRecognition.dir\build.make CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.s
+.PHONY : src/Recording.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -161,6 +185,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... computerAudioRecognition
+	@echo ... src/Recording.obj
+	@echo ... src/Recording.i
+	@echo ... src/Recording.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s

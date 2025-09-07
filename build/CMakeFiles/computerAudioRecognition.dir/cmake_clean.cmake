@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.obj"
+  "CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.obj.d"
   "CMakeFiles/computerAudioRecognition.dir/src/main.cpp.obj"
   "CMakeFiles/computerAudioRecognition.dir/src/main.cpp.obj.d"
   "computerAudioRecognition.exe"

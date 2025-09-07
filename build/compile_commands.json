@@ -4,5 +4,11 @@
   "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/computerAudioRecognition.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\computerAudioRecognition.dir\\src\\main.cpp.obj -c C:\\Users\\david\\Desktop\\PersonalProjects\\ComputerAudioRecognition\\src\\main.cpp",
   "file": "C:/Users/david/Desktop/PersonalProjects/ComputerAudioRecognition/src/main.cpp",
   "output": "CMakeFiles/computerAudioRecognition.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/david/Desktop/PersonalProjects/ComputerAudioRecognition/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/computerAudioRecognition.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\computerAudioRecognition.dir\\src\\Recording.cpp.obj -c C:\\Users\\david\\Desktop\\PersonalProjects\\ComputerAudioRecognition\\src\\Recording.cpp",
+  "file": "C:/Users/david/Desktop/PersonalProjects/ComputerAudioRecognition/src/Recording.cpp",
+  "output": "CMakeFiles/computerAudioRecognition.dir/src/Recording.cpp.obj"
 }
 ]
