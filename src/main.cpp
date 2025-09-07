@@ -6,7 +6,7 @@ int main(int argc, char* argv[]) {//argc is number of params, char* argv is an a
     if (argc == 3 && std::string(argv[1]) == "--record") {
         std::string label = argv[2];
         recordAudio(label);
-        std::cout << "recording!!!" << std::endl;
+        // std::cout << "recording!!!" << std::endl;
     } else if (argc == 2 && std::string(argv[1]) == "--train") {
         // trainModel();
         std::cout << "training!!!!" << std::endl;

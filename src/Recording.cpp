@@ -19,6 +19,56 @@ struct RecordingData {
     bool recording = false;
 };
 
+
+void saveWav(const std::string &filename, const std::vector<int16_t> &samples, int sampleRate = 44100) {
+    std::ofstream out(filename, std::ios::binary);
+    if (!out) {
+        std::cerr << "Failed to open file " << filename << " for writing\n";
+        return;
+    }
+
+    int numSamples = static_cast<int>(samples.size());
+    int byteRate = sampleRate * 2; // 16-bit mono = 2 bytes per sample
+
+    // --- WAV header ---
+    out.write("RIFF", 4);
+    int32_t chunkSize = 36 + numSamples * 2; 
+    out.write(reinterpret_cast<const char*>(&chunkSize), 4);
+    out.write("WAVE", 4);
+
+    // fmt subchunk
+    out.write("fmt ", 4);
+    int32_t subChunk1Size = 16;
+    out.write(reinterpret_cast<const char*>(&subChunk1Size), 4);
+    int16_t audioFormat = 1; // PCM
+    out.write(reinterpret_cast<const char*>(&audioFormat), 2);
+    int16_t numChannels = 1; // mono
+    out.write(reinterpret_cast<const char*>(&numChannels), 2);
+    out.write(reinterpret_cast<const char*>(&sampleRate), 4);
+    out.write(reinterpret_cast<const char*>(&byteRate), 4);
+    int16_t blockAlign = 2; // numChannels * bitsPerSample/8
+    out.write(reinterpret_cast<const char*>(&blockAlign), 2);
+    int16_t bitsPerSample = 16;
+    out.write(reinterpret_cast<const char*>(&bitsPerSample), 2);
+
+    // data subchunk
+    out.write("data", 4);
+    int32_t dataSize = numSamples * 2;
+    out.write(reinterpret_cast<const char*>(&dataSize), 4);
+
+    // write actual samples
+    out.write(reinterpret_cast<const char*>(samples.data()), dataSize);
+
+    out.close();
+    std::cout << "Saved WAV: " << filename << "\n";
+}
+
+
+
+
+
+
+
 //PortAudio requires recordCallback to have this signature
 static int recordCallback(
     const void *input,
@@ -45,7 +95,7 @@ static int recordCallback(
 }
 
 void recordAudio(const std::string &label) {
-    fs::create_directories("Recordings/" + label);
+    fs::create_directories("../Recordings/" + label);
 
     int fileIndex = 1;
     //we want to get the latest filename (theyre iterated integers so the largest number) in the labels folder in Recordings
@@ -53,7 +103,7 @@ void recordAudio(const std::string &label) {
     //auto is a placeholder type, this is changed to what the value given by fs::directory_iterator("Recordings/" + label)
         //auto p  →  std::filesystem::directory_entry p
     //auto& is a reference to the original file given by the iterator, if it was just auto, that would make a copy
-    for (auto& p : fs::directory_iterator("Recordings/" + label)) {
+    for (auto& p : fs::directory_iterator("../Recordings/" + label)) {
         //only deal with files that are .wav since those are recordings
         if (p.path().extension() == ".wav") {
             //p.path().stem().string() gets the filename without extension, stoi converts the name to an int
@@ -61,7 +111,7 @@ void recordAudio(const std::string &label) {
             if (n >= fileIndex) fileIndex = n+1;
         }
     }
-    std::string filename = "Recordings/" + label + "/" + std::to_string(fileIndex) + ".wav";
+    std::string filename = "../Recordings/" + label + "/" + std::to_string(fileIndex) + ".wav";
 
 
     Pa_Initialize();
@@ -94,7 +144,7 @@ void recordAudio(const std::string &label) {
     Pa_CloseStream(stream);//releases the resources that were making the stream possible
     Pa_Terminate();//terminates portaudio, its no longer needed
 
-
+    saveWav(filename, data.samples, SAMPLE_RATE);
 
     std::cout << "Saved recording to " << filename << "\n";
 }
